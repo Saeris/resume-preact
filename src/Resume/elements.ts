@@ -129,7 +129,10 @@ export const Contact = styled.address(
   `
 );
 
-export const Service = styled(Link)<{ label?: string }>(
+export const Service = styled(Link)<{
+  label?: string;
+  children?: React.ReactNode;
+}>(
   ({ theme, label = `` }) => css`
     display: inline-flex;
     align-items: center;

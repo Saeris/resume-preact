@@ -1,4 +1,25 @@
-export const results = {
+export interface Results {
+  fullName: string;
+  title: string;
+  contacts: { label: string; to: string }[];
+  summary: string;
+  skills: string[];
+  jobs: {
+    role: string;
+    type: string;
+    company: string | null;
+    print: boolean;
+    timeframe: string;
+    location: string;
+    industry: string;
+    technologies: string[];
+    highlights: string[];
+  }[];
+  projects: { name: string; description: string; website: string; repository: string; technologies: string[] }[];
+  schools: { name: string; description: string; graduated: string; location: string }[];
+}
+
+export const results: { data: Results } = {
   data: {
     fullName: `Drake Costa`,
     title: `Full-Stack JavaScript Engineer`,

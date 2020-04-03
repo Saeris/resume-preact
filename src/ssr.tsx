@@ -1,4 +1,4 @@
-import { h, Fragment, ComponentType, FunctionalComponent, JSX } from "preact";
+import { h, Fragment, ComponentType, FunctionComponent, JSX } from "preact";
 
 let wrap = (App: ComponentType) => App;
 
@@ -22,9 +22,8 @@ if (process.env.SSR) {
       // styled-components typings are broken and explicitly force React.Element, so we override:
       return (sheet.getStyleElement() as unknown) as JSX.Element;
     };
-
-    // eslint-disable-next-line
-    return props => (
+    sheet.seal();
+    const SSRApp: FunctionComponent = (props) => (
       <Fragment>
         <StyleSheetManager sheet={sheet.instance}>
           <App {...props} />
@@ -32,6 +31,8 @@ if (process.env.SSR) {
         <StyleTags />
       </Fragment>
     );
+
+    return SSRApp;
   };
 }
 
