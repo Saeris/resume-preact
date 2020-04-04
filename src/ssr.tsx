@@ -4,6 +4,9 @@ let wrap = (App: ComponentType) => App;
 
 // For SSR only: wrap the app to collect and append styles
 if (process.env.SSR) {
+  const jsdom = __non_webpack_require__("jsdom");
+  // @ts-ignore
+  global["DOMParser"] = new jsdom.JSDOM().window.DOMParser;
   // We use require() here so that these large interfaces don't get bundled into the client:
   const { ServerStyleSheet, StyleSheetManager }: typeof import("styled-components") = require("styled-components"); // eslint-disable-line
 

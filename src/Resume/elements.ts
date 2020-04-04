@@ -328,7 +328,7 @@ export const Company = styled.div(
 );
 
 export const Timeframe = styled.div(
-  ({ children, theme }) => css`
+  ({ children = ``, theme }) => css`
     grid-area: timeframe;
     justify-self: flex-end;
     padding-right: 1ch;

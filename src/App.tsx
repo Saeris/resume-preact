@@ -11,5 +11,3 @@ export const App = () => (
     <Resume />
   </ThemeProvider>
 );
-
-export default App;
