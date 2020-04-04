@@ -22,7 +22,7 @@ if (process.env.SSR) {
       // styled-components typings are broken and explicitly force React.Element, so we override:
       return (sheet.getStyleElement() as unknown) as JSX.Element;
     };
-    sheet.seal();
+
     const SSRApp: FunctionComponent = (props) => (
       <Fragment>
         <StyleSheetManager sheet={sheet.instance}>
